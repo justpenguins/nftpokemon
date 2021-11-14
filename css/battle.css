@@ -16,7 +16,7 @@ body{
 }
 .container{
     display: grid;
-    background-image: url(/nftpokemon/img/23760.jpg);
+    background-image: url(/img/23760.jpg);
     background-repeat: no-repeat;
     background-size: 100%, 100%;
     grid-template-columns: 50% 50%;
