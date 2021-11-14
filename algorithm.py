@@ -5,9 +5,14 @@ def get_stats(hash):
         return None
     else:
         stats = []
+        i = 0
         last_digits = hash[len(hash)-4:]
         for char in last_digits:
-            stats.append(get_stat(char))
+            if i == 3:
+                stats.append(get_type(char))
+            else:
+                stats.append(get_stat(char))
+            i += 1
         return stats
 
 # computes the stat for a single character in the hash
@@ -18,3 +23,24 @@ def get_stat(stat):
         return abs(ord(stat)**2-100**2) + 1
     else:
         return -1
+
+# computes the type for the given character in the hash
+def get_type(stat):
+    if stat.isnumeric():
+        type = 100 - stat**2
+        if type > 90:
+            return "FIRE"
+        elif type > 60:
+            return "WATER"
+        else:
+            return "WOOD"
+    elif stat.isalpha():
+        type = ord(stat)
+        if type < 106:
+            return "FIRE"
+        elif type < 115:
+            return "WATER"
+        else:
+            return "WOOD"
+    else:
+        return "NULL"
