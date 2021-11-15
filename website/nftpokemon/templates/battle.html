@@ -23,27 +23,30 @@
 <body>
     <div class="container" style="background-image: url({% static 'img/23760.jpg' %})">
 
+        <h1>{{result}}</h1>
         <div class="character" id="ch1">
-            <h3 id="ch1name">{{ name }}: {{token}}</h3>
+            <h3 id="ch1name">{{ player.name }}: {{player.token}}</h3>
             <div class="hp" id="ch1hpgreen"></div>
             <div class="characterImg">
-                <img src="{{ image }}" alt="" id="ch1img" height="260px">
+                <img src="{{ player.img }}" alt="" id="ch1img" height="260px">
             </div>
             <div class="value" id="ch1value">
-                <h4>Attack <span id="ch1Attack">100</span></h4>
-                <h4>Defense <span id="ch1defense">80</span></h4>
-                <h4>HP <span id="ch1hp">870</span></h4>
+                <h4>Attack <span id="ch1Attack">{{player_stats.1}}</span></h4>
+                <h4>Defense <span id="ch1defense">{{player_stats.2}}</span></h4>
+                <h4>HP <span id="ch1hp">{{player_stats.0}}</span></h4>
+                <h4>type <span id="ch1hp">{{player_stats.4}}</span></h4>
             </div>
         </div>
 
         <div class="character" id="ch2">
-            <h3 id="ch2name">name goes here</h3>
+            <h3 id="ch2name">{{ enemy.name }}: {{enemy.token}}</h3>
             <div class="hp" id="ch2hpgreen"></div>
-            <img src="" alt="" id="ch2img" height="300px">
+            <img src="{{ enemy.image }}" alt="" id="ch2img" height="300px">
             <div class="value" id="ch2value">
-                <h4>Attack <span id="ch2Attack">100</span></h4>
-                <h4>Defense <span id="ch2defense">80</span></h4>
-                <h4>HP <span id="ch2hp">870</span></h4>
+                <h4>Attack <span id="ch1Attack">{{enemy.stats.1}}</span></h4>
+                <h4>Defense <span id="ch1defense">{{enemy.stats.2}}</span></h4>
+                <h4>HP <span id="ch1hp">{{enemy.stats.0}}</span></h4>
+                <h4>type <span id="ch1hp">{{enemy.stats.4}}</span></h4>
             </div>
 
         </div>

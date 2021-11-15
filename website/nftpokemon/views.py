@@ -1,6 +1,8 @@
 from types import NoneType
 from django.shortcuts import render
+from .algorithm import get_stats
 from .models import NFT
+from .battle import round
 import os
 
 from requests.api import get
@@ -14,14 +16,21 @@ def index(request):
     return render(request, 'home.html', context)
 
 def battle(request):
-    temp = get_random_nft()
-    while temp is NoneType:
-        temp = get_random_nft()
-    print(temp)
-    n = NFT(name = temp['name'], token = int(temp['token']), img = temp['image'], hash = temp['hash'])
+    player = NFT.objects.get(token=277)
+
+    enemy = get_random_nft()
+    while enemy is NoneType:
+        enemy = get_random_nft()
+
+    n = NFT(name = enemy['name'], token = int(enemy['token']), img = enemy['image'], hash = enemy['hash'])
     n.save()
 
-    context = temp
+    enemy['stats'] = get_stats(enemy['hash'])
+
+    result = round(player.hash, enemy['hash'])
+    
+
+    context = {'player': player, 'player_stats': get_stats(player.hash), 'enemy': enemy, "result": result}
 
     return render(request, 'battle.html', context)
 
