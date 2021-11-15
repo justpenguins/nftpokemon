@@ -9,12 +9,18 @@ class Battle:
         hp1 = hash1.get_hp()
         hp2 = hash2.get_hp()
 
-    def round():
-        while (enemyHP > 0 and playerHP > 0):
+    def round(player_id, enemy_id):
+        battle = Battle();
+        player = get_stats(player_id)
+        enemy = get_stats(enemy_id)
+        player_hp = player[2]
+        enemy_hp = enemy[2]
+        turn = 0 # enemy starts
+        while (enemy_hp > 0 and player_hp > 0):
             if turn == 1: # player attacks
-                attack(player, enemy)
-            else:         # enemy attacks
-                attack(enemy, Player)
+                battle.attack(player_id, enemy_id)
+            else: # enemy attacks
+                battle.attack(enemy_id, player_id)
 
 
 class Player:
@@ -29,21 +35,6 @@ class Player:
         self.player_atk = stats[1]
         self.player_def = stats[2]
         self.player_type = stats[3]
-
-    def get_id():
-        return player_id
-
-    def get_hp():
-        return player_hp
-    
-    def get_atk():
-        return player_atk
-
-    def get_def():
-        return player_def
-
-    def get_type():
-        return player_type
 
     
 
