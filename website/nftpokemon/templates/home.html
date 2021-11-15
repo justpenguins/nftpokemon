@@ -5,41 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="css/home.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head>
 <body>
     <div class="botton">
-          
-        <a href="battle.html" class="button nav"> Start! </a>
+        <a href="battle" class="button nav"> Start! </a>
         
-      </div>  
+    </div>  
 
       <div class="characterContainer">
-          <div id="chara1"></div>
-          <div id="chara2"></div>
-          <div id="chara3"></div>
-          <div id="chara4"></div>
-          <div id="chara5"></div>
-          <div id="chara6"></div>
-          <div id="chara7"></div>
-          <div id="chara8"></div>
-          <div id="chara9"></div>
-          <div id="chara10"></div>
-          <div id="chara11"></div>
-          <div id="chara12"></div>
-          <div id="chara13"></div>
-          <div id="chara14"></div>
-          <div id="chara15"></div>
-          <div id="chara16"></div>
-          <div id="chara17"></div>
-          <div id="chara18"></div>
-          <div id="chara19"></div>
-          <div id="chara20"></div>
-          <div id="chara21"></div>
-          <div id="chara22"></div>
-          <div id="chara23"></div>
-          <div id="chara24"></div>
-          <div id="chara25"></div>
+          {% for n in nfts %}
+            <div id="chara">
+                <img src="{{ n.img }}">
+                <p>{{n.name}}:{{n.token}}</p>
+            </div>
+          {% endfor %}
       </div>
       
 

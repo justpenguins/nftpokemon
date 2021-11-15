@@ -46,7 +46,7 @@ def get_nft_metadata(address, token_id):
 #Output
 #   returns an object for an nft with its name, image link, and original minting hash
 def get_random_nft():
-    address = addresses[random.randrange(len(addresses))]
+    address = addresses[1]
     collection = load_nft_token_ids(address)                                                # returns a list of all tokens for a given randomized collection from our list
     token = random.randrange(int(collection['data']['pagination']['total_count']))          # random token_id out of the collection
 

@@ -120,6 +120,8 @@ h3{
     width: 100%;
     text-align: center;
 }
-/* .characterImg{
+.characterImg img {
+    width: 250px;
+    height: 250px;
     background-color: blue;
-} */
+} 
