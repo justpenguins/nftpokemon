@@ -1,10 +1,11 @@
-import requests, json, random
+import requests, json, random, os
 
 #rather than get a random list of all nfts we just pull from a few popular colections for simplicity
 #this feature would be accounted for in a final version
 addresses = [
     '0x60e4d786628fea6478f785a6d7e704777c86a7c6',
     '0xe4605d46fd0b3f8329d936a8b258d69276cba264',]
+
 
 #Input
 #   -address - a crypto collection address with nfts on opensea
@@ -21,7 +22,7 @@ def update_nft_token_ids():
 #Output
 #   returns a json object containing a list of nft token ids
 def load_nft_token_ids(address):
-    f = open(address + '.json', 'r', encoding='utf-8')
+    f = open('nftpokemon/' + address + '.json', 'r', encoding='utf-8')
     return json.load(f)
 
 #Input
@@ -63,5 +64,3 @@ def get_random_nft():
     
     result = {'name': name, 'token': token, 'image':image, 'hash': hash}
     return result
-
-print(get_random_nft())

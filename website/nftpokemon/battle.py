@@ -2,8 +2,6 @@ from algorithm import *
 
 
 class Battle:
-    playerHP = 0 
-    enemyHP = 0
     animations = []
 
     # player hash1 attacks hash2
