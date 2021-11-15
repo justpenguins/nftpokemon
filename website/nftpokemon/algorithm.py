@@ -17,7 +17,7 @@ def get_stats(hash):
 
 # computes the stat for a single character in the hash
 def get_stat(stat):
-    if stat.isnumeric():
+    if stat.isdecimal():
         return 100 - stat**2
     elif stat.isalpha():
         return abs(ord(stat)**2-100**2) + 1
@@ -26,7 +26,7 @@ def get_stat(stat):
 
 # computes the type for the given character in the hash
 def get_type(stat):
-    if stat.isnumeric():
+    if stat.isdecimal():
         type = 100 - stat**2
         if type > 90:
             return "FIRE"
