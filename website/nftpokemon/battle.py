@@ -6,11 +6,11 @@ class Battle:
 
     # player hash1 attacks hash2
     def attack(hash1, hash2):
-        hp1 = hash1.get_hp()
-        hp2 = hash2.get_hp()
+        hash1.player_hp -= hash2.player_atk
+        
 
     def round(player_id, enemy_id):
-        battle = Battle();
+        battle = Battle()
         player = get_stats(player_id)
         enemy = get_stats(enemy_id)
         player_hp = player[2]
