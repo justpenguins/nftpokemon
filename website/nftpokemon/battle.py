@@ -8,7 +8,7 @@ class Battle:
     def attack(hash1, hash2):
         hash1.player_hp -= hash2.player_atk
         
-
+    # one battle round, pass in two Players, the player and the enemy
     def round(player_id, enemy_id):
         battle = Battle()
         player = get_stats(player_id)
